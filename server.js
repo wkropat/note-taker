@@ -13,32 +13,40 @@ app.use(express.static("public"));
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 
-// The following HTML routes should be created:
+// Create HTML routes
 
-// GET /notes should return the notes.html file.
 app.get("/", (req,res)=> {
+    // GET / should return index.html file
     res.sendFile(path.join(__dirname,`./public/index.html`));
 });
 
 app.get("/notes",  (req,res)=>{
-    res.sendFile(path.join(__dirname,`./public/index.html`));
+    // GET /notes should return the notes.html file.
+    res.sendFile(path.join(__dirname,`./public/notes.html`));
 });
-// The following API routes should be created:
-// GET /api/notes should read the db.json file and return all saved notes as JSON.
+
+// GET * should return the index.html file. Catchall function to return to index.html. Put last??
+
+// Create API routes
 
 app.get("/api/notes",(req,res)=>{
-
-    res.sendFile(path.join(__dirname,`./public/index.html`));
+    //  Return all saved notes saved as JSON
+    res.sendFile(path.join(__dirname,`./db/sb.json`));
 });
 
-// GET * should return the index.html file. Catchall function to return to index.html Put last??
-// POST /api/notes should receive a new note to save on the request body, add it to the db.json file, and then return the new note to the client. You'll need to find a way to give each note a unique id when it's saved (look into npm packages that could do this for you).
+// API Post route 
 
-app.post("/", (req,res)=>{
+app.post("/api/notes", (req,res)=>{
+    // Get UUID
+
+    // POST /api/notes should receive a new note to save on the request body, 
+
+    // add it to the db.json file,
+
+    // and then return the new note to the client
 });
 
 // Have to listen in to the port
-
 app.listen(PORT, () => {
     console.log(`Smooth vibes coming through ${PORT}`);
 });
