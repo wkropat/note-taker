@@ -17,6 +17,8 @@ app.use(express.json());
 
 app.get("/", (req,res)=> {
     // GET / should return index.html file
+    // Question for the grader:
+    // Do I need this if I'm doing the same thing below with the app.get /* ?
     res.sendFile(path.join(__dirname,`./public/index.html`));
 });
 
@@ -26,6 +28,9 @@ app.get("/notes",  (req,res)=>{
 });
 
 // GET * should return the index.html file. Catchall function to return to index.html. Put last??
+app.get('/*', (req,res) => {
+    res.sendFile(path.join(__dirname,`./public/index.html`));
+});
 
 // Create API routes
 
