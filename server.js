@@ -5,6 +5,7 @@ const path = require("path");
 const db = require("./db/db.json");
 const fs = require("fs");
 const { randomUUID } = require("crypto");
+
 // const { text } = require("express");
 
 // Heroku-friendly PORT
@@ -39,7 +40,7 @@ app.get('/*', (req,res) => {
 
 app.get("/api/notes",(req,res)=>{
     //  Return all saved notes saved as JSON
-    res.sendFile(path.join(__dirname,`./db/sb.json`));
+    res.sendFile(path.join(__dirname,`./db/db.json`));
 });
 
 // API Post route 
@@ -58,10 +59,9 @@ app.post("/api/notes", (req,res)=>{
     // add it to the db.json file,
     db.push(note);
     fs.writeFileSync("./db/db.json", JSON.stringify(db,null,4));
-    // and then return the new note to the client
+    // and then return the new note to the client??
+    res.sendFile(path.join(__dirname,`./db/db.json`));
 
-    // Answer your questions.
-    res.send("Note taken.");
 });
 
 // Have to listen in to the port
