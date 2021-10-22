@@ -57,7 +57,7 @@ app.post("/api/notes", (req,res)=>{
     }
     // add it to the db.json file,
     db.push(note);
-    fs.writeFilesSync("./db/db.json", JSON.stringify(db,null,4));
+    fs.writeFileSync("./db/db.json", JSON.stringify(db,null,4));
     // and then return the new note to the client
 
     // Answer your questions.
