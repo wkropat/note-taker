@@ -5,7 +5,7 @@ const path = require("path");
 const db = require("./db/db.json");
 const fs = require("fs");
 const { randomUUID } = require("crypto");
-const { text } = require("express");
+// const { text } = require("express");
 
 // Heroku-friendly PORT
 const PORT = process.env.PORT || 3000;
@@ -57,7 +57,7 @@ app.post("/api/notes", (req,res)=>{
     }
     // add it to the db.json file,
     db.push(note);
-    fs.writeFilesSync("./db/db.json", JSON.strinigfy(db,null,4));
+    fs.writeFilesSync("./db/db.json", JSON.stringify(db,null,4));
     // and then return the new note to the client
 
     // Answer your questions.
