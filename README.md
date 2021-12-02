@@ -1,5 +1,9 @@
 # Note Taker
 
+## Description
+
+This app is aimed at small business owners who want to be able to take notes and keep track of tasks. It is built using express.js, with the npm packages express, path, and uuid. The app is deployed on heroku.
+
 ## Deployment
 
  [Git Repository](https://github.com/wkropat/note-taker)  
